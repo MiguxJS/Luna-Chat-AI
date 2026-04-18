@@ -32,5 +32,3 @@ El proyecto busca ofrecer una interfaz estéticamente relajante, combinando tono
 - **Tipografía:** [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans) (Google Fonts).
 
 ---
-# 3. Levanta un servidor local (Ejemplo con Python)
-python -m http.server 8000
