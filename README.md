@@ -5,7 +5,7 @@
 [![UI](https://img.shields.io/badge/UI-Glassmorphism-blueviolet)]()
 
 <p align="center">
-  <img src="images/banerl.png" alt="Luna Chat AI Banner" width="100%">
+  <img src="images/bannerl.png" alt="Luna Chat AI Banner" width="100%">
 </p>
 
 
