@@ -12,11 +12,16 @@ El proyecto busca ofrecer una interfaz estéticamente relajante, combinando tono
 
 ## ✨ Características Principales
 
-- 🌙 **Chat con LUNA:** Un chatbot integrado (vía API) diseñado para escuchar y brindar apoyo emocional.
-- 🧘 **Interfaz de Paz (Asteria):** Diseño web moderno y fluido con `backdrop-filter` para un efecto de cristal inmersivo.
-- 🧠 **Memoria Local:** Uso de `localStorage` para recordar el nombre o apodo preferido del usuario sin comprometer su privacidad (no requiere base de datos externa).
-- 📜 **Inspiración Diaria:** Integración con API de frases motivacionales dinámicas al iniciar la plataforma.
-- 🔒 **Privacidad First:** Todo el procesamiento del entorno se maneja desde el lado del cliente (Client-Side).
+### - 🌙 **Chat con LUNA**
+- Un chatbot integrado (vía API) diseñado para escuchar y brindar apoyo emocional.
+### - 🧘 **Interfaz de Paz (Asteria)**
+-  Diseño web moderno y fluido con `backdrop-filter` para un efecto de cristal inmersivo.
+### - 🧠 **Memoria Local**
+-  Uso de `localStorage` para recordar el nombre o apodo preferido del usuario sin comprometer su privacidad pues no requiere base de datos externa.
+### -  - 📜 **Inspiración Diaria**
+-  Integración con API de frases motivacionales dinámicas al iniciar la plataforma.
+### - 🔒 **Privacidad First
+- ** Todo el procesamiento del entorno se maneja de forma segura y anónima.
 
 ---
 
