@@ -4,6 +4,11 @@
 [![Status](https://img.shields.io/badge/Status-En_Desarrollo-brightgreen)]()
 [![UI](https://img.shields.io/badge/UI-Glassmorphism-blueviolet)]()
 
+<p align="center">
+  <img src="images/banerl.png" alt="Luna Chat AI Banner" width="100%">
+</p>
+
+
 **Asteria** es un entorno web diseñado como un espacio seguro y de apoyo emocional. Su componente principal es **LUNA**, una inteligencia artificial conversacional empática y cálida.
 
 El proyecto busca ofrecer una interfaz estéticamente relajante, combinando tonos pastel, efectos de cristal (glassmorphism) y herramientas de bienestar diario.
