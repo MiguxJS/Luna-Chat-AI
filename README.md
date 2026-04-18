@@ -3,7 +3,7 @@
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC_BY--NC--ND_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 [![Status](https://img.shields.io/badge/Status-En_Desarrollo-brightgreen)]()
 [![UI](https://img.shields.io/badge/UI-Glassmorphism-blueviolet)]()
-[![Ko-fi](https://shields.io)](https://ko-fi.com)
+[![Ko-fi](https://raw.githubusercontent.com/pachadotdev/buymeacoffee-badges/main/bmc-donate-yellow.svg)](https://ko-fi.com/MiguxJS)
 
 <p align="center">
   <img src="images/bannerl.png" alt="Luna Chat AI Banner" width="100%">
