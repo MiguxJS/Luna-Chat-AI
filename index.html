@@ -906,6 +906,317 @@
     }
 
     /* ================================================================
+       NEWS / UPDATES SECTION
+    ================================================================ */
+    .news-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    /* Two-column grid: news list + sidebar (GitHub + Ko-fi) */
+    .news-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 16px;
+      align-items: start;
+    }
+
+    /* ── News feed card ── */
+    .news-feed-card {
+      padding: 24px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .news-feed-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .news-live-dot {
+      width: 7px;
+      height: 7px;
+      background: #4caf50;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+      animation: pulse 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    /* Individual news item */
+    .news-item {
+      display: flex;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(206, 147, 216, 0.18);
+      transition: background 0.2s ease;
+    }
+
+    .news-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .news-item:first-child {
+      padding-top: 0;
+    }
+
+    .news-badge {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin-top: 2px;
+    }
+
+    .news-badge-purple {
+      background: rgba(156, 39, 176, 0.12);
+    }
+
+    .news-badge-green {
+      background: rgba(76, 175, 80, 0.12);
+    }
+
+    .news-badge-blue {
+      background: rgba(33, 150, 243, 0.12);
+    }
+
+    .news-badge-orange {
+      background: rgba(255, 152, 0, 0.12);
+    }
+
+    .news-badge-pink {
+      background: rgba(233, 30, 140, 0.12);
+    }
+
+    .news-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .news-tag {
+      display: inline-block;
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--purple-mid);
+      background: rgba(156, 39, 176, 0.1);
+      border-radius: 20px;
+      padding: 2px 8px;
+      margin-bottom: 4px;
+    }
+
+    .news-headline {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.4;
+      margin-bottom: 3px;
+    }
+
+    .news-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    .news-date {
+      font-size: 10.5px;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-top: 5px;
+    }
+
+    .news-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--purple-mid);
+      text-decoration: none;
+      margin-top: 6px;
+      transition: opacity 0.2s;
+    }
+
+    .news-link:hover {
+      opacity: 0.75;
+    }
+
+    /* ── Sidebar cards (GitHub + Ko-fi) ── */
+    .news-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .github-card {
+      padding: 20px 22px;
+      background: linear-gradient(135deg, rgba(36, 41, 47, 0.06), rgba(36, 41, 47, 0.03));
+      border: 1.5px solid rgba(36, 41, 47, 0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .github-card-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .github-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #24292f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .github-card-name {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .github-card-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+
+    .github-card-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    .github-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 10px 16px;
+      background: #24292f;
+      border: none;
+      border-radius: var(--radius-xl);
+      color: white;
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s var(--transition-bounce);
+    }
+
+    .github-btn:hover {
+      background: #1a1f24;
+      transform: scale(1.04);
+      box-shadow: 0 4px 14px rgba(36, 41, 47, 0.28);
+    }
+
+    .kofi-card {
+      padding: 20px 22px;
+      background: linear-gradient(135deg, rgba(255, 94, 91, 0.08), rgba(255, 94, 91, 0.04));
+      border: 1.5px solid rgba(255, 94, 91, 0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .kofi-emoji {
+      font-size: 28px;
+    }
+
+    .kofi-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .kofi-desc {
+      font-size: 11.5px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    .kofi-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 10px 16px;
+      background: linear-gradient(135deg, #ff5e5b, #ff8c00);
+      border: none;
+      border-radius: var(--radius-xl);
+      color: white;
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s var(--transition-bounce);
+      box-shadow: 0 4px 14px rgba(255, 94, 91, 0.3);
+    }
+
+    .kofi-btn:hover {
+      transform: scale(1.04);
+      box-shadow: 0 8px 22px rgba(255, 94, 91, 0.42);
+    }
+
+    .suggestions-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 18px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.45);
+      border: 1.5px dashed rgba(206, 147, 216, 0.5);
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .suggestions-bar a {
+      font-weight: 700;
+      color: var(--purple-mid);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .suggestions-bar a:hover {
+      opacity: 0.7;
+    }
+
+    /* Responsive: stack on tablet */
+    @media (max-width: 860px) {
+      .news-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ================================================================
        SUPPORT SECTION
     ================================================================ */
     .support-wrapper {
@@ -1546,6 +1857,151 @@
     }
 
     /* ================================================================
+       DISCLAIMER MODAL (Luna)
+    ================================================================ */
+    .disclaimer-card {
+      max-width: 560px;
+      text-align: left;
+    }
+
+    .disclaimer-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .disclaimer-warning-icon {
+      font-size: 36px;
+      flex-shrink: 0;
+      animation: emojiBounce 0.7s var(--transition-bounce);
+    }
+
+    .disclaimer-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #c62828;
+      line-height: 1.3;
+    }
+
+    .disclaimer-subtitle {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .disclaimer-body {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 22px;
+      max-height: 280px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .disclaimer-body::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .disclaimer-body::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .disclaimer-body::-webkit-scrollbar-thumb {
+      background: rgba(206, 147, 216, 0.45);
+      border-radius: 10px;
+    }
+
+    .disclaimer-point {
+      display: flex;
+      gap: 12px;
+      padding: 13px 15px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(206, 147, 216, 0.22);
+    }
+
+    .disclaimer-point-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .disclaimer-point-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 3px;
+    }
+
+    .disclaimer-point-text {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .disclaimer-confirm-text {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 18px;
+      padding: 10px 14px;
+      background: rgba(243, 229, 245, 0.6);
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--purple-soft);
+    }
+
+    .disclaimer-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .disclaimer-accept-btn {
+      flex: 1;
+      padding: 13px;
+      border: none;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, #9c27b0, #e91e8c);
+      color: white;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(156, 39, 176, 0.38);
+      transition: all 0.25s var(--transition-bounce);
+    }
+
+    .disclaimer-accept-btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 28px rgba(156, 39, 176, 0.48);
+    }
+
+    .disclaimer-reject-btn {
+      flex: 1;
+      padding: 13px;
+      border: 1.5px solid rgba(156, 39, 176, 0.25);
+      border-radius: var(--radius-xl);
+      background: transparent;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .disclaimer-reject-btn:hover {
+      background: rgba(255, 235, 238, 0.7);
+      border-color: rgba(229, 57, 53, 0.3);
+      color: #c62828;
+    }
+
+    /* ================================================================
        MICRO-ANIMATIONS
     ================================================================ */
     @keyframes cardEntrance {
@@ -1696,6 +2152,82 @@
         data-i18n="ls_continue">
         Continuar de todas formas
       </button>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MODAL: Luna Disclaimer
+  ============================================================ -->
+  <div class="modal-backdrop hidden" id="modal-luna-disclaimer" role="dialog" aria-labelledby="disclaimer-title"
+    aria-modal="true">
+    <div class="modal-card disclaimer-card glass-card">
+
+      <div class="disclaimer-header">
+        <span class="disclaimer-warning-icon" aria-hidden="true">⚠️</span>
+        <div>
+          <h2 class="disclaimer-title" id="disclaimer-title" data-i18n="disc_title">AVISO IMPORTANTE: NO ES UN SERVICIO
+            MÉDICO</h2>
+          <p class="disclaimer-subtitle" data-i18n="disc_subtitle">Luna · Asistente de acompañamiento IA · SiriusCrew
+          </p>
+        </div>
+      </div>
+
+      <div class="disclaimer-body">
+        <div class="disclaimer-point">
+          <span class="disclaimer-point-icon" aria-hidden="true">👨‍⚕️</span>
+          <div>
+            <p class="disclaimer-point-title" data-i18n="disc_p1_title">No es un profesional de la salud</p>
+            <p class="disclaimer-point-text" data-i18n="disc_p1_text">Luna no es médico, psicólogo ni psiquiatra, y no
+              sustituye el diagnóstico o tratamiento de un profesional de salud mental. Las respuestas son informativas
+              y de acompañamiento, no prescripciones médicas.</p>
+          </div>
+        </div>
+
+        <div class="disclaimer-point">
+          <span class="disclaimer-point-icon" aria-hidden="true">🚨</span>
+          <div>
+            <p class="disclaimer-point-title" data-i18n="disc_p2_title">Situaciones de Emergencia</p>
+            <p class="disclaimer-point-text" data-i18n="disc_p2_text">Si estás en una crisis inmediata, tienes
+              pensamientos de autolesión o estás en peligro, Luna no puede ayudarte de forma activa. Contacta de
+              inmediato a los servicios de emergencia de tu país o a una línea de crisis.</p>
+          </div>
+        </div>
+
+        <div class="disclaimer-point">
+          <span class="disclaimer-point-icon" aria-hidden="true">🤖</span>
+          <div>
+            <p class="disclaimer-point-title" data-i18n="disc_p3_title">Limitaciones de la Tecnología</p>
+            <p class="disclaimer-point-text" data-i18n="disc_p3_text">Luna está diseñada para ofrecer apoyo y
+              estrategias de bienestar, pero puede generar información inexacta. La responsabilidad sobre las decisiones
+              tomadas tras interactuar con la IA recae totalmente en el usuario.</p>
+          </div>
+        </div>
+
+        <div class="disclaimer-point">
+          <span class="disclaimer-point-icon" aria-hidden="true">🔒</span>
+          <div>
+            <p class="disclaimer-point-title" data-i18n="disc_p4_title">Privacidad y Soberanía</p>
+            <p class="disclaimer-point-text" data-i18n="disc_p4_text">Asteria prioriza tu privacidad mediante el
+              procesamiento local de datos; sin embargo, esta herramienta debe usarse como un complemento al bienestar
+              personal y nunca como una fuente única de verdad médica.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="disclaimer-confirm-text" data-i18n="disc_confirm">
+        Al continuar, confirmas que comprendes que Asteria es un proyecto de apoyo tecnológico y no un sustituto de la
+        atención clínica profesional.
+      </p>
+
+      <div class="disclaimer-actions">
+        <button class="disclaimer-reject-btn" onclick="rejectDisclaimer()" data-i18n="disc_reject">
+          ✕ No aceptar
+        </button>
+        <button class="disclaimer-accept-btn" onclick="acceptDisclaimer()" data-i18n="disc_accept">
+          ✔ Aceptar y continuar
+        </button>
+      </div>
+
     </div>
   </div>
 
@@ -1881,6 +2413,81 @@
               <span data-i18n="luna_cta_btn">Chatear con Luna</span>
             </button>
           </article>
+
+          <!-- ══ NOVEDADES DEL PROYECTO ══
+               Para añadir noticias: edita el array NEWS_ITEMS en el JavaScript
+               (busca la sección "10. News Feed"). Cada ítem tiene:
+                 icon, badgeClass, tag, headline, desc, date, link (opcional)
+          -->
+          <section aria-label="Novedades del proyecto">
+            <div class="news-section-header">
+              <h2 class="section-title" style="margin-bottom:0;">
+                <span aria-hidden="true">📢</span>
+                <span data-i18n="news_title">Novedades del Proyecto</span>
+              </h2>
+            </div>
+
+            <div class="news-layout" style="margin-top:16px;">
+
+              <!-- Feed de noticias (se llena dinámicamente desde JS) -->
+              <div class="glass-card news-feed-card">
+                <div class="news-feed-title">
+                  <span class="news-live-dot" aria-hidden="true"></span>
+                  <span data-i18n="news_updates">Últimas actualizaciones</span>
+                </div>
+                <div id="news-feed-list" role="list" aria-label="Lista de novedades">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+
+              <!-- Sidebar: GitHub + Ko-fi -->
+              <div class="news-sidebar">
+
+                <!-- GitHub card -->
+                <div class="glass-card github-card">
+                  <div class="github-card-top">
+                    <div class="github-icon" aria-hidden="true">🐙</div>
+                    <div>
+                      <div class="github-card-name">ASTERIA en GitHub</div>
+                      <div class="github-card-sub">SiriusCrew / LunaChat</div>
+                    </div>
+                  </div>
+                  <p class="github-card-desc" data-i18n="github_desc">
+                    ¿Tienes sugerencias o encontraste un bug? ¡Visita el repositorio y abre un issue!
+                  </p>
+                  <a href="https://github.com/MiguxJS/Luna-Chat-AI" target="_blank" rel="noopener noreferrer"
+                    class="github-btn" aria-label="Ver repositorio de ASTERIA en GitHub">
+                    <span aria-hidden="true">⭐</span>
+                    <span data-i18n="github_btn">Ver en GitHub</span>
+                  </a>
+                </div>
+
+                <!-- Ko-fi card -->
+                <div class="glass-card kofi-card">
+                  <span class="kofi-emoji" aria-hidden="true">☕</span>
+                  <p class="kofi-title" data-i18n="kofi_title">¡Apóyanos en Ko-fi!</p>
+                  <p class="kofi-desc" data-i18n="kofi_desc">
+                    ASTERIA es un proyecto independiente. Si te está ayudando, considera invitarnos un café 💜
+                  </p>
+                  <a href="https://github.com/MiguxJS/Luna-Chat-AI" target="_blank" rel="noopener noreferrer"
+                    class="kofi-btn" aria-label="Apoyar ASTERIA en Ko-fi">
+                    <span aria-hidden="true">☕</span>
+                    <span data-i18n="kofi_btn">Invitarnos un café</span>
+                  </a>
+                </div>
+
+              </div><!-- /news-sidebar -->
+            </div><!-- /news-layout -->
+
+            <!-- Suggestions bar -->
+            <div class="suggestions-bar" style="margin-top:14px;">
+              <span aria-hidden="true">💡</span>
+              <span data-i18n="suggestions_text">¿Tienes ideas o sugerencias? </span>
+              <a href="https://github.com/MiguxJS/Luna-Chat-AI/issues" target="_blank" rel="noopener noreferrer"
+                data-i18n="suggestions_link">Visita nuestro repositorio →</a>
+            </div>
+
+          </section>
 
         </div>
       </section>
@@ -2357,6 +2964,30 @@
         streak_today: 'Hoy es tu primer día 🌱',
         streak_days: 'día',
         streak_days_pl: 'días',
+        // News section
+        news_title: 'Novedades del Proyecto',
+        news_updates: 'Últimas actualizaciones',
+        github_desc: '¿Tienes sugerencias o encontraste un bug? ¡Visita el repositorio y abre un issue!',
+        github_btn: 'Ver en GitHub',
+        kofi_title: '¡Apóyanos en Ko-fi!',
+        kofi_desc: 'ASTERIA es un proyecto independiente. Si te está ayudando, considera invitarnos un café 💜',
+        kofi_btn: 'Invitarnos un café',
+        suggestions_text: '¿Tienes ideas o sugerencias? ',
+        suggestions_link: 'Visita nuestro repositorio →',
+        // Disclaimer
+        disc_title: 'AVISO IMPORTANTE: NO ES UN SERVICIO MÉDICO',
+        disc_subtitle: 'Luna · Asistente de acompañamiento IA · SiriusCrew',
+        disc_p1_title: 'No es un profesional de la salud',
+        disc_p1_text: 'Luna no es médico, psicólogo ni psiquiatra, y no sustituye el diagnóstico o tratamiento de un profesional de salud mental. Las respuestas son informativas y de acompañamiento, no prescripciones médicas.',
+        disc_p2_title: 'Situaciones de Emergencia',
+        disc_p2_text: 'Si estás en una crisis inmediata, tienes pensamientos de autolesión o estás en peligro, Luna no puede ayudarte de forma activa. Contacta de inmediato a los servicios de emergencia de tu país o a una línea de crisis.',
+        disc_p3_title: 'Limitaciones de la Tecnología',
+        disc_p3_text: 'Luna está diseñada para ofrecer apoyo y estrategias de bienestar, pero puede generar información inexacta. La responsabilidad sobre las decisiones tomadas tras interactuar con la IA recae totalmente en el usuario.',
+        disc_p4_title: 'Privacidad y Soberanía',
+        disc_p4_text: 'Asteria prioriza tu privacidad mediante el procesamiento local de datos; sin embargo, esta herramienta debe usarse como complemento al bienestar personal y nunca como fuente única de verdad médica.',
+        disc_confirm: 'Al continuar, confirmas que comprendes que Asteria es un proyecto de apoyo tecnológico y no un sustituto de la atención clínica profesional.',
+        disc_reject: '✕ No aceptar',
+        disc_accept: '✔ Aceptar y continuar',
       },
       en: {
         brand_tagline: 'Emotional wellness',
@@ -2486,6 +3117,30 @@
         streak_today: 'Today is your first day 🌱',
         streak_days: 'day',
         streak_days_pl: 'days',
+        // News section
+        news_title: 'Project Updates',
+        news_updates: 'Latest updates',
+        github_desc: 'Found a bug or have a suggestion? Visit the repository and open an issue!',
+        github_btn: 'View on GitHub',
+        kofi_title: 'Support us on Ko-fi!',
+        kofi_desc: 'ASTERIA is an independent project. If it is helping you, consider buying us a coffee 💜',
+        kofi_btn: 'Buy us a coffee',
+        suggestions_text: 'Have ideas or suggestions? ',
+        suggestions_link: 'Visit our repository →',
+        // Disclaimer
+        disc_title: 'IMPORTANT NOTICE: NOT A MEDICAL SERVICE',
+        disc_subtitle: 'Luna · AI Companion Assistant · SiriusCrew',
+        disc_p1_title: 'Not a healthcare professional',
+        disc_p1_text: 'Luna is not a doctor, psychologist, or psychiatrist, and does not replace the diagnosis or treatment of a mental health professional. Responses are informational and supportive, not medical prescriptions.',
+        disc_p2_title: 'Emergency Situations',
+        disc_p2_text: 'If you are in an immediate crisis, have thoughts of self-harm, or feel in danger, Luna cannot actively help you. Please contact emergency services in your country or a crisis helpline immediately.',
+        disc_p3_title: 'Technology Limitations',
+        disc_p3_text: 'Luna is designed to offer wellness support and strategies, but may generate inaccurate information. You bear full responsibility for decisions made after interacting with the AI.',
+        disc_p4_title: 'Privacy & Data Sovereignty',
+        disc_p4_text: 'Asteria prioritizes your privacy through local data processing; however, this tool should be used as a personal wellness complement and never as a sole source of medical truth.',
+        disc_confirm: 'By continuing, you confirm that you understand Asteria is a technological support project and not a substitute for professional clinical care.',
+        disc_reject: '✕ Do not accept',
+        disc_accept: '✔ Accept and continue',
       },
     };
 
@@ -2672,6 +3327,11 @@
        4. Navigation
     ============================================================ */
     function cambiarSeccion(id) {
+      // Intercept Luna: show disclaimer if not yet accepted
+      if (id === 'luna' && LS.get('asteria_luna_disclaimer') !== '1') {
+        document.getElementById('modal-luna-disclaimer').classList.remove('hidden');
+        return;
+      }
       document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
       document.querySelectorAll('.nav-btn').forEach(b => { b.classList.remove('active'); b.removeAttribute('aria-current'); });
       const sec = document.getElementById('section-' + id);
@@ -2679,6 +3339,16 @@
       const btn = document.getElementById('btn-' + id);
       if (btn) { btn.classList.add('active'); btn.setAttribute('aria-current', 'page'); }
       closeSidebar();
+    }
+
+    function acceptDisclaimer() {
+      LS.set('asteria_luna_disclaimer', '1');
+      document.getElementById('modal-luna-disclaimer').classList.add('hidden');
+      cambiarSeccion('luna');
+    }
+
+    function rejectDisclaimer() {
+      document.getElementById('modal-luna-disclaimer').classList.add('hidden');
     }
 
     /* ============================================================
@@ -2921,6 +3591,84 @@
         location.reload();
       }
     }
+
+    /* ============================================================
+       10. News Feed
+       ════════════════════════════════════════════════════════════
+       PARA AÑADIR NOVEDADES: agrega un objeto al array NEWS_ITEMS.
+       Campos disponibles:
+         icon       — emoji o carácter que se muestra en el badge
+         badgeClass — clase CSS de color: news-badge-purple | green | blue | orange | pink
+         tag        — etiqueta pequeña (ej: 'Lanzamiento', 'Mejora', 'Fix', 'Comunidad')
+         headline   — título corto de la noticia
+         desc       — descripción larga (opcional, puede quedar '')
+         date       — fecha en texto libre (ej: 'Abr 2026')
+         link       — URL (opcional, null si no hay enlace)
+         linkText   — texto del enlace (opcional)
+    ============================================================ */
+    const NEWS_ITEMS = [
+      {
+        icon: '🐙',
+        badgeClass: 'news-badge-purple',
+        tag: 'Lanzamiento',
+        headline: '¡ASTERIA ya está en GitHub!',
+        desc: 'El código fuente de ASTERIA / LunaChat está ahora disponible públicamente. Puedes explorar, hacer fork y contribuir al proyecto.',
+        date: 'Abr 2026',
+        link: 'https://github.com/MiguxJS/Luna-Chat-AI',
+        linkText: 'Ver repositorio →',
+      },
+      {
+        icon: '✨',
+        badgeClass: 'news-badge-pink',
+        tag: 'Nueva función',
+        headline: 'Dashboard ASTERIA v2.0',
+        desc: 'Nuevo Command Center con selector de ánimo, frases motivacionales, racha de días, idioma ES/EN y mucho más.',
+        date: 'Abr 2026',
+        link: null,
+        linkText: null,
+      },
+      // ── Agrega aquí tus próximas novedades ──
+      // {
+      //   icon: '🛠️',
+      //   badgeClass: 'news-badge-blue',
+      //   tag: 'Mejora',
+      //   headline: 'Título de la novedad',
+      //   desc: 'Descripción breve del cambio o novedad.',
+      //   date: 'Mmm AAAA',
+      //   link: null,
+      //   linkText: null,
+      // },
+    ];
+
+    function buildNewsFeed() {
+      const container = document.getElementById('news-feed-list');
+      if (!container) return;
+      container.innerHTML = '';
+
+      NEWS_ITEMS.forEach(item => {
+        const article = document.createElement('article');
+        article.className = 'news-item';
+        article.setAttribute('role', 'listitem');
+
+        const linkHtml = item.link
+          ? `<a href="${item.link}" target="_blank" rel="noopener noreferrer" class="news-link">${item.linkText ?? 'Ver más →'}</a>`
+          : '';
+
+        article.innerHTML = `
+          <div class="news-badge ${item.badgeClass}" aria-hidden="true">${item.icon}</div>
+          <div class="news-body">
+            <span class="news-tag">${item.tag}</span>
+            <p class="news-headline">${item.headline}</p>
+            ${item.desc ? `<p class="news-desc">${item.desc}</p>` : ''}
+            <p class="news-date">📅 ${item.date}</p>
+            ${linkHtml}
+          </div>
+        `;
+        container.appendChild(article);
+      });
+    }
+
+    buildNewsFeed();
 
     /* ============================================================
        11. Init — apply everything on load
