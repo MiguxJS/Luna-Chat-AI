@@ -150,7 +150,7 @@
       gap: 6px;
       z-index: 100;
       transition: transform 0.4s var(--transition-smooth);
-      overflow: hidden;
+      overflow: auto;
     }
 
     .sidebar-brand {
@@ -393,10 +393,13 @@
     .sidebar-overlay {
       display: none;
       position: fixed;
-      inset: 0;
+      top: 0;
+      left: var(--sidebar-w);  /* ← empieza DESPUÉS del sidebar */
+      right: 0;
+      bottom: 0;
       background: rgba(58, 20, 80, 0.22);
-      backdrop-filter: blur(2px);
-      z-index: 90;
+      backdrop-filter: blur(3px);
+      z-index: 140;
     }
 
     /* ================================================================
