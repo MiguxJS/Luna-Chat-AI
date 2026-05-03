@@ -2901,12 +2901,23 @@
               <div class="setting-info">
                 <p class="setting-name" data-i18n="set_local">Guardar historial local</p>
                 <p class="setting-desc" data-i18n="set_local_desc">Los datos permanecen solo en tu dispositivo</p>
-              </div>
+              </div>         
               <label class="toggle">
                 <input type="checkbox" id="toggle-history" checked />
                 <span class="toggle-slider"></span>
               </label>
             </div>
+               <div class="setting-row">
+              <div class="setting-info">
+                <p class="setting-name">Detección de ubicación</p>
+                <p class="setting-desc">Usa tu IP para sugerir recursos locales en Ayuda Profesional</p>
+               </div>
+
+  <label class="toggle" aria-label="Activar detección de ubicación">
+    <input type="checkbox" id="toggle-location" checked onchange="toggleLocation(this)" />
+    <span class="toggle-slider"></span>
+  </label>
+</div>
             <div class="setting-row">
               <div class="setting-info">
                 <p class="setting-name" data-i18n="set_delete">Borrar todos los datos</p>
@@ -3635,6 +3646,13 @@
       document.getElementById('stat-mood-avg').textContent = data.emoji;
     })();
 
+    (function restoreLocationPref() {
+  const toggle = document.getElementById('toggle-location');
+  if (toggle && LS.get('asteria_location_enabled') === '0') {
+    toggle.checked = false;
+  }
+    })();
+
     buildMoodGrid();
 
     // Show mood message if restored
@@ -3962,6 +3980,11 @@
   let estadoDetectado = null;
  
   async function iniciarDeteccionIP() {
+      if (LS.get('asteria_location_enabled') === '0') {
+    ocultarSpinner();
+    mostrarSoloSelector('Detección de ubicación desactivada.');
+    return;
+  }
     try {
       const res = await fetch('https://ipapi.co/json/');
       const data = await res.json();
@@ -4066,6 +4089,9 @@
     }
   };
 
+function toggleLocation(checkbox) {
+  LS.set('asteria_location_enabled', checkbox.checked ? '1' : '0');
+}
   </script>
   
   
