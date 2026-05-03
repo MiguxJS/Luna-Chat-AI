@@ -2118,6 +2118,140 @@
         align-items: flex-start;
       }
     }
+
+/* ── Tarjeta de detección IP ── */
+  .help-ip-card {
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+ 
+  .help-ip-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+ 
+  .help-ip-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+ 
+  .help-ip-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text-primary);
+  }
+ 
+  .help-ip-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+ 
+  /* Spinner */
+  .help-ip-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2.5px solid rgba(156, 39, 176, 0.2);
+    border-top-color: var(--purple-mid);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+ 
+  .help-ip-spinner.hidden {
+    display: none;
+  }
+ 
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+ 
+  /* Selector manual */
+  .help-state-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+ 
+  .help-state-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+ 
+  .help-state-select {
+    width: 100%;
+    padding: 11px 16px;
+    border-radius: var(--radius-xl);
+    border: 1.5px solid rgba(206, 147, 216, 0.4);
+    background: rgba(255, 255, 255, 0.7);
+    font-family: inherit;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239c27b0' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+  }
+ 
+  .help-state-select:focus {
+    border-color: var(--purple-soft);
+    box-shadow: 0 0 0 3px rgba(206, 147, 216, 0.2);
+  }
+ 
+  /* Resultados locales */
+  #help-local-results {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+ 
+  .help-local-group {
+    animation: fadeSlideUp 0.4s var(--transition-bounce);
+  }
+ 
+  /* Badge de emergencia */
+  .help-number-emergency {
+    background: linear-gradient(135deg, rgba(229, 57, 53, 0.12), rgba(229, 57, 53, 0.08)) !important;
+    border-color: rgba(229, 57, 53, 0.3) !important;
+    color: #c62828 !important;
+  }
+ 
+  .help-number-emergency:hover {
+    background: linear-gradient(135deg, rgba(229, 57, 53, 0.2), rgba(229, 57, 53, 0.14)) !important;
+  }
+ 
+  /* Federal card */
+  .help-federal-card {
+    border: 1.5px solid rgba(156, 39, 176, 0.2);
+    background: rgba(243, 229, 245, 0.4) !important;
+  }
+ 
+  /* Chip de tipo de centro */
+  .help-center-type {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--purple-mid);
+    background: rgba(156, 39, 176, 0.1);
+    border-radius: 20px;
+    padding: 3px 10px;
+    margin-bottom: 4px;
+  }
+
   </style>
 </head>
 
@@ -2629,86 +2763,79 @@
           </article>
 
           <!-- Country cards -->
-          <div class="help-grid">
-
-            <article class="glass-card help-card">
-              <span class="help-card-flag" aria-hidden="true">🇲🇽</span>
-              <p class="help-card-country" data-i18n="country_mx">México</p>
-              <h3 class="help-card-name" data-i18n="mx_center">SAPTEL — Centro de Apoyo</h3>
-              <p class="help-card-desc" data-i18n="mx_desc">Servicio de Atención Psicológica Telefónica. Disponible 24
-                horas al día, 365 días al año.</p>
-              <div class="help-card-numbers">
-                <div class="help-number-row">
-                  <a href="tel:5552598121" class="help-number-badge" aria-label="Llamar a SAPTEL: 55 5259-8121">📞 55
-                    5259-8121</a>
-                  <span class="help-number-label" data-i18n="help_24h">24/7</span>
-                </div>
-                <div class="help-number-row">
-                  <a href="tel:8002900024" class="help-number-badge" aria-label="Llamar a IMSS: 800-290-0024">📞
-                    800-290-0024</a>
-                  <span class="help-number-label">IMSS</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="glass-card help-card">
-              <span class="help-card-flag" aria-hidden="true">🇪🇸</span>
-              <p class="help-card-country" data-i18n="country_es">España</p>
-              <h3 class="help-card-name" data-i18n="es_center">Telèfon de la Esperanza</h3>
-              <p class="help-card-desc" data-i18n="es_desc">Atención emocional y psicológica gratuita. También
-                disponible el Teléfono de la Esperanza nacional.</p>
-              <div class="help-card-numbers">
-                <div class="help-number-row">
-                  <a href="tel:717003717" class="help-number-badge" aria-label="Llamar: 717 003 717">📞 717 003 717</a>
-                  <span class="help-number-label" data-i18n="help_crisis">Crisis 24/7</span>
-                </div>
-                <div class="help-number-row">
-                  <a href="tel:024" class="help-number-badge" aria-label="Línea de atención a conducta suicida: 024">📞
-                    024</a>
-                  <span class="help-number-label" data-i18n="help_suicide">Suicidio</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="glass-card help-card">
-              <span class="help-card-flag" aria-hidden="true">🇺🇸</span>
-              <p class="help-card-country" data-i18n="country_us">Estados Unidos</p>
-              <h3 class="help-card-name">988 Suicide & Crisis Lifeline</h3>
-              <p class="help-card-desc" data-i18n="us_desc">Free and confidential emotional support 24/7. Available in
-                Spanish ("oprima 2").</p>
-              <div class="help-card-numbers">
-                <div class="help-number-row">
-                  <a href="tel:988" class="help-number-badge" aria-label="Llamar a 988">📞 988</a>
-                  <span class="help-number-label">Call or Text</span>
-                </div>
-                <div class="help-number-row">
-                  <a href="sms:741741" class="help-number-badge" aria-label="Crisis Text Line: TEXT HOME to 741741">💬
-                    741741</a>
-                  <span class="help-number-label">Text HOME</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="glass-card help-card">
-              <span class="help-card-flag" aria-hidden="true">🌍</span>
-              <p class="help-card-country" data-i18n="country_intl">Internacional</p>
-              <h3 class="help-card-name" data-i18n="intl_center">Befrienders Worldwide</h3>
-              <p class="help-card-desc" data-i18n="intl_desc">Red global de voluntarios que ofrecen apoyo emocional
-                confidencial en más de 50 países.</p>
-              <div class="help-card-numbers">
-                <div class="help-number-row">
-                  <a href="https://www.befrienders.org/find-a-helpline" target="_blank" rel="noopener noreferrer"
-                    class="help-number-badge" aria-label="Encontrar línea de ayuda local">🌐 befrienders.org</a>
-                </div>
-                <div class="help-number-row">
-                  <a href="https://findahelpline.com/" target="_blank" rel="noopener noreferrer"
-                    class="help-number-badge" aria-label="Find a Helpline">🌐 findahelpline.com</a>
-                </div>
-              </div>
-            </article>
-
-          </div>
-
+          <!-- Detección automática por IP -->
+<div class="glass-card help-ip-card" id="help-ip-card">
+  <div class="help-ip-header">
+    <div class="help-ip-icon" aria-hidden="true">📍</div>
+    <div>
+      <h2 class="help-ip-title" id="help-ip-title">Buscando recursos cerca de ti...</h2>
+      <p class="help-ip-sub" id="help-ip-sub">Detectando tu ubicación aproximada</p>
+    </div>
+    <div class="help-ip-spinner" id="help-ip-spinner" aria-hidden="true"></div>
+  </div>
+ 
+  <!-- Selector manual de estado (fallback o preferencia) -->
+  <div class="help-state-selector" id="help-state-selector" style="display:none;">
+    <label class="help-state-label" for="help-state-select">
+      ¿No es tu estado? Selecciona uno:
+    </label>
+    <select class="help-state-select" id="help-state-select" onchange="cargarCentrosPorEstado(this.value)">
+      <option value="">— Elige tu estado —</option>
+      <option value="Jalisco">Jalisco</option>
+      <option value="Ciudad de México">Ciudad de México</option>
+      <option value="Estado de México">Estado de México</option>
+      <option value="Nuevo León">Nuevo León</option>
+      <option value="Guanajuato">Guanajuato</option>
+    </select>
+  </div>
+</div>
+ 
+<!-- Centros locales detectados -->
+<div id="help-local-results"></div>
+ 
+<!-- Líneas federales — siempre visibles -->
+<div class="glass-card help-card help-federal-card">
+  <span class="help-card-flag" aria-hidden="true">🇲🇽</span>
+  <p class="help-card-country">Líneas Nacionales · Siempre disponibles</p>
+  <h3 class="help-card-name">Recursos federales gratuitos</h3>
+  <p class="help-card-desc">Disponibles desde cualquier estado, las 24 horas del día.</p>
+  <div class="help-card-numbers">
+    <div class="help-number-row">
+      <a href="tel:5552598121" class="help-number-badge" aria-label="SAPTEL 55 5259-8121">📞 55 5259-8121</a>
+      <span class="help-number-label">SAPTEL · 24/7</span>
+    </div>
+    <div class="help-number-row">
+      <a href="tel:8009112000" class="help-number-badge" aria-label="Línea de la Vida 800 911 2000">📞 800 911 2000</a>
+      <span class="help-number-label">Línea de la Vida · CONADIC</span>
+    </div>
+    <div class="help-number-row">
+      <a href="tel:8002900024" class="help-number-badge" aria-label="IMSS 800 290 0024">📞 800 290 0024</a>
+      <span class="help-number-label">IMSS · Orientación</span>
+    </div>
+    <div class="help-number-row">
+      <a href="tel:911" class="help-number-badge help-number-emergency" aria-label="Emergencias 911">🚨 911</a>
+      <span class="help-number-label">Emergencias</span>
+    </div>
+  </div>
+</div>
+ 
+<!-- Internacional como fallback final -->
+<div class="glass-card help-card">
+  <span class="help-card-flag" aria-hidden="true">🌍</span>
+  <p class="help-card-country">Internacional</p>
+  <h3 class="help-card-name">Befrienders Worldwide</h3>
+  <p class="help-card-desc">Red global de voluntarios que ofrecen apoyo emocional confidencial en más de 50 países.</p>
+  <div class="help-card-numbers">
+    <div class="help-number-row">
+      <a href="https://www.befrienders.org/find-a-helpline" target="_blank" rel="noopener noreferrer"
+        class="help-number-badge">🌐 befrienders.org</a>
+    </div>
+    <div class="help-number-row">
+      <a href="https://findahelpline.com/" target="_blank" rel="noopener noreferrer"
+        class="help-number-badge">🌐 findahelpline.com</a>
+    </div>
+  </div>
+</div>
           <!-- Reminder -->
           <div class="glass-card" style="padding:22px 28px;text-align:center;">
             <p style="font-size:15px;color:var(--text-secondary);line-height:1.75;" data-i18n="help_reminder">
@@ -3680,7 +3807,269 @@
     applyTranslations();
     renderStreak();
 
+
+    /* ============================================================
+     AYUDA PROFESIONAL — Detección por IP + Base de datos MX
+  ============================================================ */
+ 
+  const CENTROS_MX = {
+    'Jalisco': [
+      {
+        nombre: 'CISAME Guadalajara',
+        tipo: 'Centro IMSS',
+        emoji: '🏥',
+        telefonos: [
+          { num: '33 3030 5000', href: 'tel:3330305000', label: 'IMSS Jalisco' },
+        ],
+        gratuito: true,
+        horario: '24/7',
+      },
+      {
+        nombre: 'Línea de Orientación en Salud Mental',
+        tipo: 'Línea estatal',
+        emoji: '📞',
+        telefonos: [
+          { num: '33 3823 3220', href: 'tel:3338233220', label: 'SSJ Jalisco' },
+        ],
+        gratuito: true,
+        horario: 'Lun–Vie 8–20h',
+      },
+      {
+        nombre: 'UNEME-CISAME Zapopan',
+        tipo: 'ISSSTE / SSJ',
+        emoji: '🧠',
+        telefonos: [
+          { num: '33 3656 7700', href: 'tel:3336567700', label: 'UNEME Zapopan' },
+        ],
+        gratuito: true,
+        horario: 'Lun–Vie 8–15h',
+      },
+    ],
+    'Ciudad de México': [
+      {
+        nombre: 'SAPTEL',
+        tipo: 'Línea nacional / CDMX',
+        emoji: '📞',
+        telefonos: [
+          { num: '55 5259-8121', href: 'tel:5552598121', label: '24/7' },
+        ],
+        gratuito: true,
+        horario: '24/7',
+      },
+      {
+        nombre: 'LOCATEL — Orientación Psicológica',
+        tipo: 'Línea CDMX',
+        emoji: '🏙️',
+        telefonos: [
+          { num: '55 5658-1111', href: 'tel:5556581111', label: 'LOCATEL' },
+        ],
+        gratuito: true,
+        horario: '24/7',
+      },
+      {
+        nombre: 'CISAME Centro',
+        tipo: 'Centro IMSS',
+        emoji: '🏥',
+        telefonos: [
+          { num: '55 5539-0213', href: 'tel:5555390213', label: 'CISAME CDMX' },
+        ],
+        gratuito: true,
+        horario: 'Lun–Vie 8–20h',
+      },
+    ],
+    'Estado de México': [
+      {
+        nombre: 'ISSEMYM — Salud Mental',
+        tipo: 'ISSSTE / ISSEMYM',
+        emoji: '🏥',
+        telefonos: [
+          { num: '800 288 6736', href: 'tel:8002886736', label: 'ISSEMYM' },
+        ],
+        gratuito: true,
+        horario: 'Lun–Vie 8–20h',
+      },
+      {
+        nombre: 'Línea de Apoyo Psicológico Edomex',
+        tipo: 'Línea estatal',
+        emoji: '📞',
+        telefonos: [
+          { num: '800 112 7100', href: 'tel:8001127100', label: 'ISEM' },
+        ],
+        gratuito: true,
+        horario: '24/7',
+      },
+    ],
+    'Nuevo León': [
+      {
+        nombre: 'CISAME Monterrey',
+        tipo: 'Centro IMSS',
+        emoji: '🏥',
+        telefonos: [
+          { num: '81 8150 3500', href: 'tel:8181503500', label: 'IMSS NL' },
+        ],
+        gratuito: true,
+        horario: 'Lun–Vie 8–20h',
+      },
+      {
+        nombre: 'Línea de Crisis Nuevo León',
+        tipo: 'Línea estatal',
+        emoji: '📞',
+        telefonos: [
+          { num: '81 8346 8000', href: 'tel:8183468000', label: 'SS Nuevo León' },
+        ],
+        gratuito: true,
+        horario: '24/7',
+      },
+    ],
+    'Guanajuato': [
+      {
+        nombre: 'UNEME-CISAME Guanajuato',
+        tipo: 'IMSS / SSG',
+        emoji: '🏥',
+        telefonos: [
+          { num: '473 732 0023', href: 'tel:4737320023', label: 'CISAME Gto' },
+        ],
+        gratuito: true,
+        horario: 'Lun–Vie 8–15h',
+      },
+      {
+        nombre: 'Línea de Salud Mental SSG',
+        tipo: 'Línea estatal',
+        emoji: '📞',
+        telefonos: [
+          { num: '800 028 4848', href: 'tel:8000284848', label: 'SSG Guanajuato' },
+        ],
+        gratuito: true,
+        horario: 'Lun–Vie 8–20h',
+      },
+    ],
+  };
+ 
+  /* Mapeo de nombres que puede devolver ipapi → nuestros estados */
+  const IP_REGION_MAP = {
+    'Jalisco': 'Jalisco',
+    'Mexico City': 'Ciudad de México',
+    'Ciudad de México': 'Ciudad de México',
+    'Ciudad de Mexico': 'Ciudad de México',
+    'State of Mexico': 'Estado de México',
+    'Estado de Mexico': 'Estado de México',
+    'México': 'Estado de México',
+    'Nuevo León': 'Nuevo León',
+    'Nuevo Leon': 'Nuevo León',
+    'Guanajuato': 'Guanajuato',
+  };
+ 
+  let estadoDetectado = null;
+ 
+  async function iniciarDeteccionIP() {
+    try {
+      const res = await fetch('https://ipapi.co/json/');
+      const data = await res.json();
+ 
+      const regionRaw = data.region || '';
+      const estadoMapeado = IP_REGION_MAP[regionRaw] || null;
+ 
+      ocultarSpinner();
+ 
+      if (estadoMapeado && CENTROS_MX[estadoMapeado]) {
+        estadoDetectado = estadoMapeado;
+        mostrarEstadoDetectado(estadoMapeado);
+        cargarCentrosPorEstado(estadoMapeado);
+      } else {
+        // IP no coincide con nuestros estados → mostrar selector
+        mostrarSoloSelector('No encontramos centros para tu ubicación exacta.');
+      }
+    } catch {
+      // Sin internet o API fallida → mostrar selector
+      ocultarSpinner();
+      mostrarSoloSelector('No pudimos detectar tu ubicación.');
+    }
+  }
+ 
+  function mostrarEstadoDetectado(estado) {
+    document.getElementById('help-ip-title').textContent =
+      `📍 Recursos cerca de ${estado}`;
+    document.getElementById('help-ip-sub').textContent =
+      'Basado en tu ubicación aproximada · ¿No es correcto?';
+ 
+    // Mostrar selector como opción de cambio
+    const selector = document.getElementById('help-state-selector');
+    selector.style.display = 'flex';
+    // Pre-seleccionar el estado detectado
+    const sel = document.getElementById('help-state-select');
+    sel.value = estado;
+  }
+ 
+  function mostrarSoloSelector(motivo) {
+    document.getElementById('help-ip-title').textContent = '📍 Selecciona tu estado';
+    document.getElementById('help-ip-sub').textContent = motivo + ' Elige manualmente.';
+    document.getElementById('help-state-selector').style.display = 'flex';
+  }
+ 
+  function ocultarSpinner() {
+    const sp = document.getElementById('help-ip-spinner');
+    if (sp) sp.classList.add('hidden');
+  }
+ 
+  function cargarCentrosPorEstado(estado) {
+    const container = document.getElementById('help-local-results');
+    container.innerHTML = '';
+ 
+    if (!estado || !CENTROS_MX[estado]) return;
+ 
+    const centros = CENTROS_MX[estado];
+ 
+    centros.forEach(centro => {
+      const card = document.createElement('article');
+      card.className = 'glass-card help-card help-local-group';
+ 
+      const telefonosHtml = centro.telefonos.map(t => `
+        <div class="help-number-row">
+          <a href="${t.href}" class="help-number-badge" aria-label="Llamar a ${centro.nombre}">
+            📞 ${t.num}
+          </a>
+          <span class="help-number-label">${t.label}</span>
+        </div>
+      `).join('');
+ 
+      card.innerHTML = `
+        <span class="help-card-flag" aria-hidden="true">${centro.emoji}</span>
+        <span class="help-center-type">${centro.tipo}</span>
+        <h3 class="help-card-name">${centro.nombre}</h3>
+        <p class="help-card-desc">
+          ${centro.gratuito ? '✅ Gratuito' : ''} · ⏰ ${centro.horario}
+        </p>
+        <div class="help-card-numbers">
+          ${telefonosHtml}
+        </div>
+      `;
+ 
+      container.appendChild(card);
+    });
+ 
+    // Actualizar título si el usuario cambió manualmente
+    if (estado !== estadoDetectado) {
+      document.getElementById('help-ip-title').textContent = `📍 Recursos en ${estado}`;
+      document.getElementById('help-ip-sub').textContent = 'Selección manual';
+    }
+  }
+ 
+  /* Inicia detección cuando se abre la sección de Ayuda */
+  let ipDeteccionIniciada = false;
+ 
+  const _cambiarSeccionOriginal = cambiarSeccion;
+  cambiarSeccion = function(id) {
+    _cambiarSeccionOriginal(id);
+    if (id === 'help' && !ipDeteccionIniciada) {
+      ipDeteccionIniciada = true;
+      iniciarDeteccionIP();
+    }
+  };
+  
   </script>
+  
+  
+
 </body>
 
 </html>
