@@ -3129,6 +3129,14 @@
         disc_confirm: 'Al continuar, confirmas que comprendes que Asteria es un proyecto de apoyo tecnológico y no un sustituto de la atención clínica profesional.',
         disc_reject: '✕ No aceptar',
         disc_accept: '✔ Aceptar y continuar',
+        // help
+        help_location_disabled: 'Detección de ubicación desactivada.',
+        help_location_notfound: 'No pudimos detectar tu ubicación automáticamente. Elige tu estado:',
+        help_location_near: 'Recursos cerca de',
+        help_location_approx: 'Basado en tu ubicación aproximada · ¿No es correcto?',
+        help_location_select: 'Selecciona tu estado',
+        help_location_manual: 'Selección manual',
+        help_gratuito: '✅ Gratuito',
       },
       en: {
         brand_tagline: 'Emotional wellness',
@@ -3282,6 +3290,14 @@
         disc_confirm: 'By continuing, you confirm that you understand Asteria is a technological support project and not a substitute for professional clinical care.',
         disc_reject: '✕ Do not accept',
         disc_accept: '✔ Accept and continue',
+        // help
+        help_location_disabled: 'Location detection disabled.',
+        help_location_notfound: 'Could not detect your location automatically. Choose your state:',
+        help_location_near: 'Resources near',
+        help_location_approx: 'Based on your approximate location · Not correct?',
+        help_location_select: 'Select your state',
+        help_location_manual: 'Manual selection',
+        help_gratuito: '✅ Free',
       },
     };
 
@@ -3982,7 +3998,7 @@
   async function iniciarDeteccionIP() {
       if (LS.get('asteria_location_enabled') === '0') {
     ocultarSpinner();
-    mostrarSoloSelector('Detección de ubicación desactivada.');
+    mostrarSoloSelector('help_location_disabled');
     return;
   }
     try {
@@ -4005,15 +4021,15 @@
     } catch {
       // Sin internet o API fallida → mostrar selector
       ocultarSpinner();
-      mostrarSoloSelector('No pudimos detectar tu ubicación.');
+      mostrarSoloSelector('help_location_notfound');
     }
   }
  
   function mostrarEstadoDetectado(estado) {
     document.getElementById('help-ip-title').textContent =
-      `📍 Recursos cerca de ${estado}`;
+      `📍 ${t('help_location_near')} ${estado}`;
     document.getElementById('help-ip-sub').textContent =
-      'Basado en tu ubicación aproximada · ¿No es correcto?';
+      'help_location_approx';
  
     // Mostrar selector como opción de cambio
     const selector = document.getElementById('help-state-selector');
@@ -4024,7 +4040,7 @@
   }
  
   function mostrarSoloSelector(motivo) {
-    document.getElementById('help-ip-title').textContent = '📍 Selecciona tu estado';
+    document.getElementById('help-ip-title').textContent = `📍 ${t('help_location_select')}`;
     document.getElementById('help-ip-sub').textContent = motivo + ' Elige manualmente.';
     document.getElementById('help-state-selector').style.display = 'flex';
   }
@@ -4060,7 +4076,7 @@
         <span class="help-center-type">${centro.tipo}</span>
         <h3 class="help-card-name">${centro.nombre}</h3>
         <p class="help-card-desc">
-          ${centro.gratuito ? '✅ Gratuito' : ''} · ⏰ ${centro.horario}
+          ${centro.gratuito ? t('help_gratuito') : ''} ${centro.horario ? `· ⏰ ${centro.horario}` : ''}
         </p>
         <div class="help-card-numbers">
           ${telefonosHtml}
@@ -4073,7 +4089,7 @@
     // Actualizar título si el usuario cambió manualmente
     if (estado !== estadoDetectado) {
       document.getElementById('help-ip-title').textContent = `📍 Recursos en ${estado}`;
-      document.getElementById('help-ip-sub').textContent = 'Selección manual';
+      document.getElementById('help-ip-sub').textContent = t('help_location_manual');
     }
   }
  
