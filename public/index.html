@@ -3298,6 +3298,7 @@
         help_location_select: 'Select your state',
         help_location_manual: 'Manual selection',
         help_gratuito: '✅ Free',
+        help_notstate: ''
       },
     };
 
@@ -3792,6 +3793,19 @@
         link: null,
         linkText: null,
       },
+
+         {
+        icon: '💫',
+        badgeClass: 'news-badge-blue',
+        tag: 'Mejora',
+        headline: 'ASTERIA v2.1',
+        desc: 'Localización facilitada de ayuda profesional, recursos por región y más',
+        date: 'May 08',
+        link: null,
+        linkText: null,
+      },
+
+
       // ── Agrega aquí tus próximas novedades ──
       // {
       //   icon: '🛠️',
@@ -3849,7 +3863,7 @@
   const CENTROS_MX = {
     'Jalisco': [
       {
-        nombre: 'CISAME Guadalajara',
+        nombre: 'Línea de Atención en Crisis de SALME ',
         tipo: 'SALME',
         emoji: '🏥',
         telefonos: [
@@ -3859,7 +3873,7 @@
         horario: '24/7',
       },
       {
-        nombre: 'Línea de Orientación en Salud Mental',
+        nombre: 'Línea de Orientación en Salud',
         tipo: 'Línea estatal',
         emoji: '📞',
         telefonos: [
@@ -3869,13 +3883,13 @@
         horario: '',
       },
       {
-        nombre: 'CISAME Zapopan',
+        nombre: 'CAISAME Zapopan',
         tipo: 'SSJ',
         emoji: '🧠',
         telefonos: [
           { num: '33 3030 9900', href: 'tel:3330309900', label: 'Zapopan' },
         ],
-        gratuito: true,
+        gratuito: false,
         horario: '',
       },
     ],
@@ -3998,7 +4012,7 @@
   async function iniciarDeteccionIP() {
       if (LS.get('asteria_location_enabled') === '0') {
     ocultarSpinner();
-    mostrarSoloSelector('help_location_disabled');
+    mostrarSoloSelector(TRANSLATIONS[currentLang].help_location_disabled);
     return;
   }
     try {
@@ -4016,12 +4030,12 @@
         cargarCentrosPorEstado(estadoMapeado);
       } else {
         // IP no coincide con nuestros estados → mostrar selector
-        mostrarSoloSelector('No encontramos centros para tu ubicación exacta.');
+        mostrarSoloSelector(TRANSLATIONS[currentLang].help_location_select);
       }
     } catch {
       // Sin internet o API fallida → mostrar selector
       ocultarSpinner();
-      mostrarSoloSelector('help_location_notfound');
+      mostrarSoloSelector(TRANSLATIONS[currentLang].help_location_notfound)
     }
   }
  
@@ -4041,7 +4055,7 @@
  
   function mostrarSoloSelector(motivo) {
     document.getElementById('help-ip-title').textContent = `📍 ${t('help_location_select')}`;
-    document.getElementById('help-ip-sub').textContent = motivo + ' Elige manualmente.';
+    document.getElementById('help-ip-sub').textContent = motivo + '';
     document.getElementById('help-state-selector').style.display = 'flex';
   }
  
